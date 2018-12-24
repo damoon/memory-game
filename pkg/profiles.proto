@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package memory;
+
+message UserSignedUp {
+    string uuid = 1;
+    string email = 2;
+    string nick = 3;
+    string passwordHash = 4;
+}
+
+message ProfileUpdated {
+    string uuid = 1;
+    string nick = 2;
+    string passwordHash = 3;
+}
+
+message PasswordRecoveryRequested {
+    string email = 1;
+}
+
+message PasswordRecoveryTokenTransmitted {
+    string email = 1;
+}
+
+message PasswordRecovered {
+    string uuid = 1;
+    string passwordHash = 2;
+}
