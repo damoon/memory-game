@@ -2,28 +2,33 @@ syntax = "proto3";
 
 package memory;
 
+message UserSignUpRequest {
+    string nick = 1;
+    string passwordHash = 2;
+}
+
 message UserSignedUp {
-    string uuid = 1;
-    string email = 2;
+    string userID = 1;
+    uint32 signUpRequestOffset = 2;
     string nick = 3;
     string passwordHash = 4;
 }
 
 message ProfileUpdated {
-    string uuid = 1;
+    string userID = 1;
     string nick = 2;
     string passwordHash = 3;
 }
 
-message PasswordRecoveryRequested {
-    string email = 1;
+message PasswordResetRequested {
+    string userID = 1;
 }
 
-message PasswordRecoveryTokenTransmitted {
-    string email = 1;
+message PasswordResetTokenTransmitted {
+    string userID = 1;
 }
 
-message PasswordRecovered {
-    string uuid = 1;
+message PasswordReseted {
+    string userID = 1;
     string passwordHash = 2;
 }
